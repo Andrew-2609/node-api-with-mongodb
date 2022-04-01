@@ -21,4 +21,9 @@ app.post('/books', (req, res) => {
     res.status(201).send('Book successfully inserted!');
 });
 
+
+function findBook(id) {
+    return books.findIndex(book => book.id === Number(id));
+}
+
 export default app;
