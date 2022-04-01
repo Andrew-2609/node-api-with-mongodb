@@ -24,7 +24,7 @@ app.post('/books', (req, res) => {
 app.put('/books/:id', (req, res) => {
     const bookId = findBook(req.params.id);
     books[bookId].title = req.body.title;
-    res.status(200).send(books);
+    res.status(200).json(books);
 });
 
 function findBook(id) {
