@@ -21,6 +21,11 @@ app.post('/books', (req, res) => {
     res.status(201).send('Book successfully inserted!');
 });
 
+app.put('/books/:id', (req, res) => {
+    const bookId = findBook(req.params.id);
+    books[bookId].title = req.body.title;
+    res.status(200).send(books);
+});
 
 function findBook(id) {
     return books.findIndex(book => book.id === Number(id));
