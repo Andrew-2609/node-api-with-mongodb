@@ -46,6 +46,18 @@ class BookController {
         });
     }
 
+    static deleteBook = (req, res) => {
+        const { id } = req.params;
+        books.findByIdAndDelete(id, (err) => {
+            if (err) {
+                res.status(404).send({ message: 'There is no book with the given id!' })
+                return;
+            }
+
+            res.status(200).send({ message: 'Book successfully deleted.' });
+        });
+    }
+
 }
 
 export default BookController;
