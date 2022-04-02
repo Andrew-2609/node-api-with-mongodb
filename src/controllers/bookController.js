@@ -8,11 +8,24 @@ class BookController {
         });
     }
 
+    static findBookById = (req, res) => {
+        const { id } = req.params;
+        books.findById(id, (err, books) => {
+            if (err) {
+                res.status(404).send(`There is no book with the given id!`);
+                return;
+            }
+
+            res.status(200).send(books);
+        })
+    }
+
     static registerBook = (req, res) => {
         const book = new books(req.body);
         book.save((err) => {
             if (err) {
                 res.status(500).send({ message: `Failed to register book: ${err.message}` });
+                return;
             }
 
             res.status(201).send(book.toJSON());
