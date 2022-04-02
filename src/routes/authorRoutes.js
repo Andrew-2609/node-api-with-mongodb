@@ -4,10 +4,10 @@ import AuthorController from '../controllers/authorController.js';
 const router = express.Router();
 
 router
-    .get('/authors', AuthorController.listAuthors)
-    .get('/authors/:id', AuthorController.findAuthorById)
-    .post('/authors', AuthorController.registerAuthor)
-    .put('/authors/:id', AuthorController.updateAuthor)
-    .delete('/authors/:id', AuthorController.deleteAuthor);
+    .get('/authors', AuthorController.list)
+    .get('/authors/:id', AuthorController.findById)
+    .post('/authors', AuthorController.register)
+    .put('/authors/:id', AuthorController.update)
+    .delete('/authors/:id', AuthorController.delete);
 
 export default router;

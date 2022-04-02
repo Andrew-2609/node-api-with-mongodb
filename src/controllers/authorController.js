@@ -2,13 +2,13 @@ import authors from '../models/Author.js';
 
 class AuthorController {
 
-    static listAuthors = (req, res) => {
+    static list = (req, res) => {
         authors.find((err, authors) => {
             res.status(200).json(authors);
         });
     }
 
-    static findAuthorById = (req, res) => {
+    static findById = (req, res) => {
         const { id } = req.params;
         authors.findById(id, (err, authors) => {
             if (err || !authors) {
@@ -20,7 +20,7 @@ class AuthorController {
         })
     }
 
-    static registerAuthor = (req, res) => {
+    static register = (req, res) => {
         const author = new authors(req.body);
         author.save((err) => {
             if (err) {
@@ -32,7 +32,7 @@ class AuthorController {
         });
     }
 
-    static updateAuthor = (req, res) => {
+    static update = (req, res) => {
         const { id } = req.params;
         authors.findByIdAndUpdate(id, {
             $set: req.body
@@ -46,7 +46,7 @@ class AuthorController {
         });
     }
 
-    static deleteAuthor = (req, res) => {
+    static delete = (req, res) => {
         const { id } = req.params;
         authors.findByIdAndDelete(id, (err) => {
             if (err) {
