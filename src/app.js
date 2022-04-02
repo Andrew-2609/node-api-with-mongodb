@@ -17,12 +17,6 @@ app.get('/books/:id', (req, res) => {
     res.status(200).json(books[bookId]);
 });
 
-app.put('/books/:id', (req, res) => {
-    const bookId = findBook(req.params.id);
-    books[bookId].title = req.body.title;
-    res.status(200).json(books);
-});
-
 app.delete('/books/:id', (req, res) => {
     const bookId = findBook(req.params.id);
     books.splice(bookId, 1);
