@@ -2,7 +2,7 @@ import books from '../models/Book.js';
 
 class BookController {
 
-    static listBooks = (req, res) => {
+    static list = (req, res) => {
         books.find()
             .populate('author', ['name'])
             .exec((err, books) => {
@@ -10,7 +10,7 @@ class BookController {
             });
     }
 
-    static findBookById = (req, res) => {
+    static findById = (req, res) => {
         const { id } = req.params;
         books.findById(id)
             .populate('author', ['name'])
@@ -24,7 +24,7 @@ class BookController {
             });
     }
 
-    static registerBook = (req, res) => {
+    static register = (req, res) => {
         const book = new books(req.body);
         book.save((err) => {
             if (err) {
@@ -36,7 +36,7 @@ class BookController {
         });
     }
 
-    static updateBook = (req, res) => {
+    static update = (req, res) => {
         const { id } = req.params;
         books.findByIdAndUpdate(id, {
             $set: req.body
@@ -50,7 +50,7 @@ class BookController {
         });
     }
 
-    static deleteBook = (req, res) => {
+    static delete = (req, res) => {
         const { id } = req.params;
         books.findByIdAndDelete(id, (err) => {
             if (err) {
