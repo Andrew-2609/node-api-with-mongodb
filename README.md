@@ -52,8 +52,10 @@ You'll probably understand it better taking a look at the project *tree* below:
         └── index.js
 
 5 directories, 14 files
+
+# generated with "tree -I 'node_modules'"
 ```
 
-You're able to see how to make a simple connection with your MongoDB database in ` `dbConnectSample.js` `.
+You're able to see how to make a simple connection with your MongoDB database in ``dbConnectSample.js``.
 
 Thanks for reading 'till here, I wish you a wonderful day!
