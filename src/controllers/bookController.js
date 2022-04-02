@@ -11,7 +11,7 @@ class BookController {
     static findBookById = (req, res) => {
         const { id } = req.params;
         books.findById(id, (err, books) => {
-            if (err) {
+            if (err || !books) {
                 res.status(404).send({ message: `There is no book with the given id!` });
                 return;
             }
