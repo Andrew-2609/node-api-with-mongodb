@@ -10,6 +10,15 @@ class BookController {
             });
     }
 
+    static listByPublisher = (req, res) => {
+        const publisher = req.query.publisher;
+        books.find({ 'publisher': publisher }, {})
+            .populate('author', ['name'])
+            .exec((err, books) => {
+                res.status(200).json(books);
+            });
+    }
+
     static findById = (req, res) => {
         const { id } = req.params;
         books.findById(id)
