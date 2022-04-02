@@ -11,3 +11,5 @@ const routes = (app) => {
         bookRoutes
     );
 };
+
+export default routes;
