@@ -12,11 +12,6 @@ const app = express().use(express.json());
 
 routes(app);
 
-app.get('/books/:id', (req, res) => {
-    const bookId = findBook(req.params.id);
-    res.status(200).json(books[bookId]);
-});
-
 app.delete('/books/:id', (req, res) => {
     const bookId = findBook(req.params.id);
     books.splice(bookId, 1);
