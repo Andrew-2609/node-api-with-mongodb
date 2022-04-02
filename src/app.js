@@ -7,8 +7,7 @@ db.once('open', () => {
     console.log('Successfully connected to the database!');
 });
 
-const app = express();
-app.use(express.json());
+const app = express().use(express.json());
 
 // const books = [
 //     { id: 1, title: 'Lord of the Rings' },
