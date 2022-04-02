@@ -19,6 +19,20 @@ class BookController {
         });
     }
 
+    static updateBook = (req, res) => {
+        const { id } = req.params;
+        books.findByIdAndUpdate(id, {
+            $set: req.body
+        }, (err) => {
+            if (err) {
+                res.status(500).send({ message: `Failed to update book: ${err.message}` });
+                return;
+            }
+
+            res.status(200).send({ message: "Book successfully updated!" });
+        });
+    }
+
 }
 
 export default BookController;
