@@ -4,7 +4,7 @@ class BookController {
 
     static listBooks = (req, res) => {
         books.find()
-            .populate('author')
+            .populate('author', ['name'])
             .exec((err, books) => {
                 res.status(200).json(books);
             });
@@ -13,7 +13,7 @@ class BookController {
     static findBookById = (req, res) => {
         const { id } = req.params;
         books.findById(id)
-            .populate('author')
+            .populate('author', ['name'])
             .exec((err, books) => {
                 if (err || !books) {
                     res.status(404).send({ message: `There is no book with the given id!` });
